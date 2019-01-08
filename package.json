@@ -1,5 +1,6 @@
 {
   "name": "aurelia-global-binding",
+  "version": "0.1.0",
   "description": "A plugin to provide an easy mean for binding with global objects such as window and document",
   "keywords": [
     "aurelia",
