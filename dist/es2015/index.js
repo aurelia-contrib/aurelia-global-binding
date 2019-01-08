@@ -81,4 +81,4 @@ function configure(config) {
     ]);
 }
 
-export { configure, WindowBinding, DocumentBinding };
+export { configure, WindowBinding, DocumentBinding, AbstractBindingRelayer };

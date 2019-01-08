@@ -130,6 +130,7 @@ define(['exports', 'aurelia-templating'], function (exports, aureliaTemplating) 
     exports.configure = configure;
     exports.WindowBinding = WindowBinding;
     exports.DocumentBinding = DocumentBinding;
+    exports.AbstractBindingRelayer = AbstractBindingRelayer;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

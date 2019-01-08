@@ -49,7 +49,7 @@ System.register(['aurelia-templating'], function (exports, module) {
                 return __assign.apply(this, arguments);
             };
 
-            var AbstractBindingRelayer = /** @class */ (function () {
+            var AbstractBindingRelayer = exports('AbstractBindingRelayer', /** @class */ (function () {
                 function AbstractBindingRelayer(target, expressions) {
                     this.target = target;
                     this.expressions = expressions;
@@ -105,7 +105,7 @@ System.register(['aurelia-templating'], function (exports, module) {
                     this.bindings.forEach(function (b) { return b.unbind(); });
                 };
                 return AbstractBindingRelayer;
-            }());
+            }()));
             var DocumentBinding = exports('DocumentBinding', /** @class */ (function (_super) {
                 __extends(DocumentBinding, _super);
                 function DocumentBinding(targetInstruction) {

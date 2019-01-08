@@ -1,8 +1,4 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var aureliaTemplating = require('aurelia-templating');
+import { TargetInstruction } from 'aurelia-templating';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -51,7 +47,7 @@ var AbstractBindingRelayer = /** @class */ (function () {
         this.bindings = undefined;
     }
     AbstractBindingRelayer.inject = function () {
-        return [aureliaTemplating.TargetInstruction];
+        return [TargetInstruction];
     };
     AbstractBindingRelayer.$view = function () {
         return null;
@@ -131,7 +127,4 @@ function configure(config) {
     ]);
 }
 
-exports.configure = configure;
-exports.WindowBinding = WindowBinding;
-exports.DocumentBinding = DocumentBinding;
-exports.AbstractBindingRelayer = AbstractBindingRelayer;
+export { configure, WindowBinding, DocumentBinding, AbstractBindingRelayer };

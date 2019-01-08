@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('aurelia-templating')) :
   typeof define === 'function' && define.amd ? define(['exports', 'aurelia-templating'], factory) :
-  (global = global || self, factory((global.au = global.au || {}, global.au.globalBindings = {}), global.au));
+  (global = global || self, factory((global.au = global.au || {}, global.au.globalBinding = {}), global.au));
 }(this, function (exports, aureliaTemplating) { 'use strict';
 
   class AbstractBindingRelayer {
@@ -88,6 +88,7 @@
   exports.configure = configure;
   exports.WindowBinding = WindowBinding;
   exports.DocumentBinding = DocumentBinding;
+  exports.AbstractBindingRelayer = AbstractBindingRelayer;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
