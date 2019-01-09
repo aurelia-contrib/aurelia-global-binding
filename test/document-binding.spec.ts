@@ -35,5 +35,27 @@ describe('Document binding', () => {
       .boundTo({ message: 'Hello world', message2: 'Ciao', message3: '👋' });
 
     await comp.create(bootstrap);
+
+    expect(document['a']).toBe('Hello world');
+    expect(document['b']).toBe('Ciao');
+    expect(document['c']).toBe('👋');
+
+    comp.dispose();
+  });
+
+  it('works with event', async () => {
+    let clickCount = 0;
+    comp = StageComponent
+      .withResources([
+        DocumentBinding as any
+      ])
+      .inView(`<document-binding
+        click.trigger="click()"></document-binding>`)
+      .boundTo({ click: () => clickCount++ });
+
+    await comp.create(bootstrap);
+
+    document.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+    expect(clickCount).toBe(1);
   });
 });

@@ -17,6 +17,7 @@
   "browser": "dist/umd/index.js",
   "jsdelivr": "dist/umd/index.js",
   "homepage": "http://aurelia.io",
+  "types": "dist/types/index.d.ts",
   "bugs": {
     "url": "https://github.com/aurelia-contrib/aurelia-global-binding/issues"
   },

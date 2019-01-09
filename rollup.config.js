@@ -14,10 +14,16 @@ export default [
     plugins: [
       typescript({
         cacheRoot: '.rollupcache',
+        useTsconfigDeclarationDir: true,
         tsconfigOverride: {
           compilerOptions: {
-            target: 'es2015'
-          }
+            target: 'es2015',
+            declaration: true,
+            declarationDir: 'dist/types'
+          },
+          include: [
+            'src'
+          ]
         }
       })
     ]
@@ -38,7 +44,10 @@ export default [
         tsconfigOverride: {
           compilerOptions: {
             target: 'es2017'
-          }
+          },
+          include: [
+            'src'
+          ]
         }
       })
     ]

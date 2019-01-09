@@ -5,6 +5,7 @@
     "module": "es2015",
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "stripInternal": true,
     "lib": [
       "dom",
       "es2017"

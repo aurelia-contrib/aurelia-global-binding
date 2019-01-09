@@ -47,10 +47,11 @@ export class AbstractBindingRelayer {
   private bindings: Binding[] | null;
   private context: View;
   
-  constructor(target: Window | Document, expressions: BindingExpression[]) {
+  constructor(target: Window | Document, targetInstruction: TargetInstruction) {
     this.target = target;
-    this.expressions = expressions;
+    this.expressions = targetInstruction.expressions as BindingExpression[];
     this.bindings = undefined;
+    targetInstruction.expressions = [];
   }
 
   created(owningView: View, view: View) {
@@ -70,8 +71,6 @@ export class AbstractBindingRelayer {
   }
 }
 
-const noExpressions: BindingExpression[] = [];
-
 export class DocumentBinding extends AbstractBindingRelayer {
 
   /**@internal */
@@ -83,8 +82,7 @@ export class DocumentBinding extends AbstractBindingRelayer {
   }
 
   constructor(targetInstruction: TargetInstruction) {
-    super(document, targetInstruction.expressions as BindingExpression[]);
-    targetInstruction.expressions = noExpressions;
+    super(document, targetInstruction);
   }
 }
 
@@ -99,7 +97,6 @@ export class WindowBinding extends AbstractBindingRelayer {
   }
 
   constructor(targetInstruction: TargetInstruction) {
-    super(window, targetInstruction.expressions as BindingExpression[]);
-    targetInstruction.expressions = noExpressions;
+    super(window, targetInstruction);
   }
 }

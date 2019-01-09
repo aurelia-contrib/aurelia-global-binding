@@ -20,26 +20,27 @@ class AbstractBindingRelayer {
                     const attrName = attr.name;
                     const attrValue = attr.value;
                     const shouldIgnore = Boolean(
-                    // or attribute with a command
+                    // ignore attribute with binding command
                     attrName.indexOf('.') !== -1
                         // ignore attribute that is custom attribute
                         || resources.getAttribute(attrName)
-                        // or attribute with interpolation expression
+                        // ignore attribute with interpolation expression
                         || compiler['bindingLanguage'].inspectTextContent(resources, attrValue));
                     if (shouldIgnore) {
                         continue;
                     }
                     // if it's a plain attribute, convert to a binding expression
                     // with value is a string literal
-                    node.setAttribute(`${attrName}.bind`, `'${attrValue}'`);
+                    node.setAttribute(`${attrName}.one-time`, `'${attrValue}'`);
                 }
             }
         };
     }
-    constructor(target, expressions) {
+    constructor(target, targetInstruction) {
         this.target = target;
-        this.expressions = expressions;
+        this.expressions = targetInstruction.expressions;
         this.bindings = undefined;
+        targetInstruction.expressions = [];
     }
     created(owningView, view) {
         // Sometimes owningView is null
@@ -61,7 +62,7 @@ class DocumentBinding extends AbstractBindingRelayer {
         return Object.assign({}, super.$resource(), { name: 'document-binding' });
     }
     constructor(targetInstruction) {
-        super(document, targetInstruction.expressions);
+        super(document, targetInstruction);
     }
 }
 class WindowBinding extends AbstractBindingRelayer {
@@ -70,7 +71,7 @@ class WindowBinding extends AbstractBindingRelayer {
         return Object.assign({}, super.$resource(), { name: 'window-binding' });
     }
     constructor(targetInstruction) {
-        super(window, targetInstruction.expressions);
+        super(window, targetInstruction);
     }
 }
 
