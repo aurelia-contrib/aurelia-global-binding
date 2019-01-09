@@ -1,6 +1,6 @@
 ## Aurelia Global Binding
 
-  * Demo / Playable code sandbox: https://codesandbox.io/s/1yjo512p0l
+  * Demo / Playable code sandbox: https://codesandbox.io/s/mmy46056lx
   * Enable simple binding (one way, two way, one time) to global objects, such as `window`, `document` via custom element template. Example:
 
   ```html

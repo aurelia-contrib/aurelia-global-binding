@@ -24,11 +24,11 @@ export class AbstractBindingRelayer {
           const attrName = attr.name;
           const attrValue = attr.value;
           const shouldIgnore = Boolean(
-            // or attribute with a command
+            // ignore attribute with binding command
             attrName.indexOf('.') !== -1
             // ignore attribute that is custom attribute
             || resources.getAttribute(attrName)
-            // or attribute with interpolation expression
+            // ignore attribute with interpolation expression
             || compiler['bindingLanguage'].inspectTextContent(resources, attrValue)
           );
           if (shouldIgnore) {
