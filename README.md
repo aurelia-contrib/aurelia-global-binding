@@ -25,28 +25,16 @@
   npm run build
   ```
 
-  * Run build, with auto rebuild:
-  ```
-  npm run build:watch
-  ```
+### Test
 
-  * Run development server with `webpack-dev-server`:
-  ```
-  npm install webpack-dev-server --save-dev
-  npm run dev
-  ```
-
-### Build the code
-
-  * After installing dependencies, run `build` or `build:prod`:
+  * Run test task (Headless Chrome):
 
   ```
-  npm run build
+  npm run test
   ```
 
-  or
-
-  ```
-  npm run build:prod
-  ```
+  * Run test task with debugger Chome
     
+  ```
+  npm run test:debugger
+  ```

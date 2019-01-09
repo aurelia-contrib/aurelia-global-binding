@@ -1,6 +1,6 @@
 {
   "name": "aurelia-global-binding",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "A plugin to provide an easy mean for binding with global objects such as window and document",
   "keywords": [
     "aurelia",
@@ -30,7 +30,7 @@
     "prebuild": "npm run rimraf",
     "build": "rollup -c",
     "test": "karma start",
-    "test:debug": "karma start --browsers ChromeDebugging",
+    "test:debugger": "karma start --browsers ChromeDebugging",
     "rimraf": "rimraf dist"
   },
   "dependencies": {
