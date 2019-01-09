@@ -36,7 +36,7 @@ export class AbstractBindingRelayer {
           }
           // if it's a plain attribute, convert to a binding expression
           // with value is a string literal
-          node.setAttribute(`${attrName}.bind`, `'${attrValue}'`);
+          node.setAttribute(`${attrName}.one-time`, `'${attrValue}'`);
         }
       }
     }
@@ -70,6 +70,8 @@ export class AbstractBindingRelayer {
   }
 }
 
+const noExpressions: BindingExpression[] = [];
+
 export class DocumentBinding extends AbstractBindingRelayer {
 
   /**@internal */
@@ -82,6 +84,7 @@ export class DocumentBinding extends AbstractBindingRelayer {
 
   constructor(targetInstruction: TargetInstruction) {
     super(document, targetInstruction.expressions as BindingExpression[]);
+    targetInstruction.expressions = noExpressions;
   }
 }
 
@@ -97,5 +100,6 @@ export class WindowBinding extends AbstractBindingRelayer {
 
   constructor(targetInstruction: TargetInstruction) {
     super(window, targetInstruction.expressions as BindingExpression[]);
+    targetInstruction.expressions = noExpressions;
   }
 }
